@@ -44,8 +44,12 @@ list(APPEND STM_INCLUDE_DIRS
 "Drivers/CMSIS/Include"
 )
 
+add_subdirectory(../src/app app)
+
 embedded_add_executable(test1 Core/Src/main.cc ${STM_SOURCE_FILES})
 target_include_directories(test1 PUBLIC ${STM_INCLUDE_DIRS})
+target_include_directories(test1 PUBLIC ../src)
+target_link_libraries(test1 app)
 
 add_custom_target(
 	image ALL

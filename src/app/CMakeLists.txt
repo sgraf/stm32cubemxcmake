@@ -1,0 +1,1 @@
+add_library(app app.cc app.h)
